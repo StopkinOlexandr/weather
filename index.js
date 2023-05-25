@@ -13,7 +13,7 @@ const weatherCode1 = document.getElementById("weatherCode");
 
 
 async function getIp() {
-    const response = await fetch("http://ip-api.com/json/");
+    const response = await fetch("http://ip-api.com/json/?fields=61439");
     // const response = await fetch("https://api.ipify.org?format=json");
     const obj = await response.json();
     // console.log(obj);
