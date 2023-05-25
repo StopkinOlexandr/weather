@@ -35,9 +35,8 @@ async function getWeather(city, latitude, longitude) {
     const response = await fetch(linkWeather);
     const obj = await response.json();
     // console.log(obj);
-    const { current_weather: { time, temperature, windspeed, weathercode }
+    const { current_weather: { temperature, windspeed, weathercode }
     } = obj;
-    console.log(time);
     console.log(temperature);
     console.log(windspeed);
     console.log(weathercode);
