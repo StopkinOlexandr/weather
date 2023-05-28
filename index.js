@@ -13,13 +13,11 @@ const weatherCode1 = document.getElementById("weatherCode");
 
 
 async function getIp() {
-    const response = await fetch("http://ip-api.com/json/");
-    // const response = await fetch("https://api.ipify.org?format=json");
+    const response = await fetch("http://ip-api.com/json");
+
     const obj = await response.json();
-    // console.log(obj);
     const { city, lat, lon } = obj;
     console.log(city);
-    // console.log(ip);
     console.log(lat);
     console.log(lon);
     getWeather(city, lat, lon);
@@ -27,14 +25,11 @@ async function getIp() {
 getIp();
 
 
-
 async function getWeather(city, latitude, longitude) {
     console.log(city);
-    // const response = await fetch("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m");
     const linkWeather = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
     const response = await fetch(linkWeather);
     const obj = await response.json();
-    // console.log(obj);
     const { current_weather: { temperature, windspeed, weathercode }
     } = obj;
     console.log(temperature);
