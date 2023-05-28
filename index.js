@@ -4,29 +4,26 @@
 // API для прогногза погоды:
 // https://open-meteo.com/
 
-
-
 const cityName = document.getElementById("cityName");
 const temperature1 = document.getElementById("temperature");
 const windSpeed1 = document.getElementById("windSpeed");
 const weatherCode1 = document.getElementById("weatherCode");
 
-
 async function getIp() {
-    const response = await fetch("http://ip-api.com/json/?fields=61439");
+    const response = await fetch("https://ipgeolocation.abstractapi.com/v1/?api_key=1ff461371eea478a9da941e993ecbbc2");
 
     const obj = await response.json();
-    const { city, lat, lon } = obj;
+    const { city, latitude, longitude } = obj;
     console.log(obj);
     console.log(city);
-    console.log(lat);
-    console.log(lon);
-    getWeather(city, lat, lon);
+    console.log(latitude);
+    console.log(longitude);
+    getWeather(city, latitude, longitude)
 }
 getIp();
 
-
 async function getWeather(city, latitude, longitude) {
+
     console.log(city);
     const linkWeather = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
     const response = await fetch(linkWeather);
