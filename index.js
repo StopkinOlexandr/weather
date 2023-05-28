@@ -17,6 +17,7 @@ async function getIp() {
 
     const obj = await response.json();
     const { city, lat, lon } = obj;
+    console.log(obj);
     console.log(city);
     console.log(lat);
     console.log(lon);
